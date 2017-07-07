@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>index</title>
+		<!-- 	<link href="//cdn.bootcss.com/flexslider/2.6.3/flexslider.min.css" rel="stylesheet">
+		<script src="//cdn.bootcss.com/jquery/2.2.2/jquery.min.js"></script>
+		<script src="//cdn.bootcss.com/flexslider/2.6.3/jquery.flexslider-min.js"></script> -->
+		<!-- http://www.ijquery.cn/?p=176 参考文档-->
+		<script type="text/javascript" src="http://www.ijquery.cn/js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="http://www.ijquery.cn/js/flexslider/jquery.flexslider.js"></script>
+		<link rel="stylesheet" type="text/css" href="http://www.ijquery.cn/js/flexslider/flexslider.css" media="all" />
+
+		<!--aniamte links-->
+		<link href="http://libs.cdnjs.net/animate.css/3.5.2/animate.css" rel="stylesheet">
+		<link href="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.5/css/bootstrap-flex.css" rel="stylesheet">
+		<style type="text/css">
+		div ul  li img{
+			width: 100%;
+			position:relative;
+			opacity: 0.9;
+			display: block;
+			z-index: 0;
+			margin: 0 auto;
+			vertical-align:middle;
+		}
+		.flex-control-nav flex-control-paging{
+			height: break-inside:
+		}
+		html,body{height:100%; width:100%; overflow:hidden; margin:0;}
+		div{
+			width: 100%;
+			height: 100%;
+		}
+		.flex-control-nav{
+			margin: 0 auto;
+			bottom: 10px;
+		}
+		.child{
+			z-index: 100000;
+			font-weight: bold;
+			width: 600px;
+			height: 50%;
+			opacity: 0.7;
+			top: 300px;
+			left: 400px;
+			text-align: center;
+			position:fixed;
+			border-radius: 3px;
+			font-size: 6rem;
+			line-height: 1;
+		   background-image: -webkit-linear-gradient(92deg,#f35626,#feab3a);
+		   -webkit-background-clip:text;
+		}
+		.login{
+			bottom:300px;
+			left: 400px;
+			position: absolute;
+			z-index: 10000;
+			font-size: 6rem;
+			line-height: 1;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="flexslider js-fullheight">
+			<ul class="slides">
+				<li><img src="images/img_bg_1.jpg" /></li>
+				<li><img src="images/img_bg_2.jpg" /></li>
+				<li><img src="images/img_bg_3.jpg" /></li>
+			</ul>
+		</div>
+		<div id='login' class="btn btn-success" style="right: 60px;bottom:200px;position: relative; width: 150px;border-radius: 6px; float: right; height: 40px;z-index: 100";>My Home>></div>
+	</body>
+	<script type="text/javascript">
+	$(function() {
+	$(".flexslider").flexslider({
+		animation:"slide",
+		slideshow:true,
+		slideshowSpeed:3000,
+		randomize:true,
+		slideDirection:"horizontal",
+		before:function(){
+			let q=$(".child");
+			if(q){
+				q.remove();
+			}
+		},
+		after: function(){
+			let temp=$(".flexslider"),child=$("<div><div>");
+			let r= Math.ceil(Math.random()*255),g=Math.ceil(Math.random()*255),b=Math.ceil(Math.random()*255);
+			child.html("<p style='color:rgb("+r+","+g+","+b+");border-radius: 3px;margin:0 auto;opacity:0.5'>Welcome to my Blog!");
+			child.id="nail";
+			var c1=["bounce","flash","pulse","rubberBand","shake","swing","bounceIn","bounceInDown","bounceInLeft","rotateOutUpLeft","zoomInLeft"];
+			var g1=Math.random()*10;
+			var t=Math.ceil(g1);
+
+			child.addClass("child");
+							// child.Attr({"background-color":"red"});
+							//child.css({"background-color":"rgb("+r+","+g+","+b+")"});
+			child.appendTo(temp);
+			child.addClass(c1[t]);
+			},
+			});
+			});
+	$("#login").click(function(){
+		window.open("index.html");
+	});
+					// $(window).load(function() {
+					//  $('.flexslider').flexslider({
+					//   animation: "fade",              //图片变换方式：淡入淡出或者滑动
+					//   slideDirection: "horizontal",   //图片设置为滑动式时的滑动方向：左右或者上下
+					//   slideshow: true,                //载入页面时，是否自动播放
+					//   slideshowSpeed: 7000,           //自动播放速度毫秒
+					//   animationDuration: 600,         //内容切换时间
+					//   touch:              //是否支持触摸滑动
+					//   directionNav: true,             //是否显示左右控制按钮
+					//   controlNav: true,               //是否显示控制菜单
+					//   keyboardNav: true,              //键盘左右方向键控制图片滑动
+					//   mousewheel: false,              //鼠标滚轮控制制图片滑动
+					//   minItems:1                  //一次最少展示滑动内容的单元个数
+					//   maxItems:0                   //一次最多展示滑动内容的单元个数
+					//   move:0              //一次滑动的单元个数
+					//   prevText: "Previous",           //String:  上一项的文字
+					//   nextText: "Next",               //String:  下一项的文字
+					//   pausePlay: false,               //Boolean: 是否显示播放暂停按钮
+					//   pauseText: 'Pause',             //String:  暂停文字
+					//   playText: 'Play',               //String: 播放文字
+					//   randomize: false,               //Boolean: 是否随机幻灯片
+					//   slideToStart: 0,                //Integer:  初始化第一次显示图片位置
+					//   animationLoop: true,            //是否循环滚动
+					//   pauseOnAction: true,            //Boolean: Pause the slideshow when interacting with control elements, highly recommended.
+					//   pauseOnHover: false,            //鼠标滑向滚动内容时，是否暂停滚动
+					//   pauseOnHover: false,           //鼠标糊上去是否暂停
+					//   controlsContainer: "",          //Selector:  be taken.
+					//   manualControls: "",             //自定义控制导航
+					//   manualControlEvent:"",          //String:自定义导航控制触发事件:默认是click,可以设定hover
+					//   start: function(){},            //加载第一页触发
+					//   before: function(){},           //每个滚动动画开始时异步触发
+					//   after: function(){},            //每个滚动动画结束时触发
+					//   end: function(){}               //滚动到最后一页时异步触发
+					
+					//  });
+					// });
+			</script>
+		</html>
